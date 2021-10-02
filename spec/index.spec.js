@@ -6,16 +6,23 @@ describe("BowlingGame", () => {
     });
 
     it("can score a gutter game", () => {
-        for (var i = 0; i < 20; i++) {
-            bowlinggame.roll(0);
-        }
+        bowlinggame.roll([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
         expect(bowlinggame.score()).toBe(0);
     });
 
     it("can score a game of ones", () => {
-        for (var i = 0; i < 20; i++) {
-            bowlinggame.roll(1);
-        }
+        bowlinggame.roll([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
         expect(bowlinggame.score()).toBe(20);
     });
+
+    it("can score a spare", () => {
+        bowlinggame.roll([1, 9, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+        expect(bowlinggame.score()).toBe(16);
+    })
+
+    function roll(rolls) {
+        for (var i = 0; i < rolls.length; i++) {
+            bowlinggame.roll(rolls[i]);
+        }
+    }
 });
