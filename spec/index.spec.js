@@ -1,14 +1,21 @@
 describe("BowlingGame", () => {
-    it("can roll a gutter ball", () => {
-        let bowlinggame => BowlingGame.make();
-        bowlinggame.roll(0);
+    let bowlinggame;
+
+    beforeEach(() => {
+        bowlinggame = BowlingGame.make;
     });
 
     it("can score a gutter game", () => {
-        let bowlinggame = BowlingGame.make();
         for (var i = 0; i < 20; i++) {
             bowlinggame.roll(0);
         }
-        expect(game.score()).toBe(0);
+        expect(bowlinggame.score()).toBe(0);
+    });
+
+    it("can score a game of ones", () => {
+        for (var i = 0; i < 20; i++) {
+            bowlinggame.roll(1);
+        }
+        expect(bowlinggame.score()).toBe(20);
     });
 });
