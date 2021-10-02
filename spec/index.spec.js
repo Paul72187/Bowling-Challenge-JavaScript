@@ -18,11 +18,15 @@ describe("BowlingGame", () => {
     it("can score a spare", () => {
         bowlinggame.roll([1, 9, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
         expect(bowlinggame.score()).toBe(16);
-    })
+    });
 
-    function roll(rolls) {
-        for (var i = 0; i < rolls.length; i++) {
-            bowlinggame.roll(rolls[i]);
-        }
+    it("can score a spare"), () => {
+        bowlinggame.roll([10, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+        expect(bowlinggame.score()).toBe(22);
     }
+
+    it("can score a perfect game", () => {
+        bowlinggame.roll([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]);
+        expect(bowlinggame.score()).toBe(300);
+    });
 });
