@@ -1,5 +1,10 @@
-it("should score all gutter balls", () => {
-    const scoreCard = `-- -- -- -- -- -- -- -- -- --`;
+describe("BowlingGame", () => {
+    it("can be made", () => {
+        BowlingGame.make();
+    });
 
-    expect(score(scoreCard)).toEqual(0);
-})
+    it("can roll a gutter ball", () => {
+        let bowlinggame => BowlingGame.make();
+        bowlinggame.roll(0);
+    });
+});
